@@ -1,5 +1,5 @@
-const iferr   = require('iferr')
-    , except  = require('except')
+const iferr  = require('iferr')
+    , except = require('except')
     , { toBTC, formatURL } = require('./util')
 
 const app = require('express')()
