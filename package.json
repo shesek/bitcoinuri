@@ -4,12 +4,15 @@
   "description": "Bitcoin URIs with fiat-denominated amounts",
   "main": "server.js",
   "author": "Nadav Ivgi",
-  "license": "ISC",
+  "license": "WTFPL",
   "dependencies": {
     "except": "^0.1.3",
     "express": "^4.14.0",
     "iferr": "^0.1.5",
     "morgan": "^1.7.0",
     "superagent": "^3.3.2"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
 }
