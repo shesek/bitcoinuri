@@ -8,7 +8,7 @@ const getRate = (currency, cb) => cb(null, 1000) || true ||
   request('https://apiv2.bitcoinaverage.com/indices/local/ticker/BTC'+currency)
     .end(iferr(cb, resp => cb(null, +resp.body.last)))
 
-const toSatoshis = btcs => movedec(btcs, -8)
+const toSatoshis = btcs => movedec(btcs, 8)
 
 const toBTC = (amount, currency, cb) => getRate(currency, iferr(cb,
   rate => cb(null, (amount/rate).toFixed(8))))
