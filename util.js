@@ -13,15 +13,17 @@ const toSatoshis = btcs => movedec(btcs, 8)
 const toBTC = (amount, currency, cb) => getRate(currency, iferr(cb,
   rate => cb(null, (amount/rate).toFixed(8))))
 
-const formatURL = (addr, opt) => `bitcoin:${ addr }?${ qs.stringify(opt) }`
+const formatURL = (addr, amount, opt) => `bitcoin:${ addr }?${ qs.stringify(Object.assign({}, opt, { amount })) }`
 
-const makePaymentReq = (addr, amount) =>
+const makePaymentReq = (addr, amount, opt) =>
   PaymentRequest.fromOptions({
     version: 1
   , paymentDetails: PaymentDetails.fromOptions({
       network: 'main'
-    , time: Date.now()/1000 | 0
-    , outputs: [ { address: addr, amount: toSatoshis(amount)  } ]
+    , time:    Date.now()/1000 | 0
+    , expires: opt.expires
+    , memo:    opt.memo
+    , outputs: [ { address: addr, value: +toSatoshis(amount) } ]
     })
   }).toRaw()
 
