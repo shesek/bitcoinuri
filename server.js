@@ -6,7 +6,7 @@ const app = require('express')()
 
 app.use(require('morgan')('dev'))
 
-app.get('/:addr([13][0-9a-zA-Z]+)/:amount([0-9.]+):currency([A-Z]{3})', (req, res, next) => {
+app.get('/:addr([13][0-9a-zA-Z]+)/:amount([0-9.]+)/:currency([A-Z]{3})', (req, res, next) => {
   toBTC(req.params.amount, req.params.currency, iferr(next, amount =>
     res.format({
       default: _ => res.redirect(302, formatURL(req.params.addr, amount, req.query))

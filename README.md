@@ -17,11 +17,9 @@ There's a live version of this app running at https://bitcoinuri.herokuapp.com/.
 
 Example URIs:
 
-- https://bitcoinuri.herokuapp.com/1EoNrcZmCpZK1Zzpo5Yey9dvtFQk8t9aiU?amount=100&currency=USD
+- https://bitcoinuri.herokuapp.com/1EoNrcZmCpZK1Zzpo5Yey9dvtFQk8t9aiU/100/USD
 
-- https://bitcoinuri.herokuapp.com/1EoNrcZmCpZK1Zzpo5Yey9dvtFQk8t9aiU?amount=150&currency=EUR
-
-- https://bitcoinuri.herokuapp.com/1EoNrcZmCpZK1Zzpo5Yey9dvtFQk8t9aiU?amount=150&currency=EUR&label=order99219
+- https://bitcoinuri.herokuapp.com/1EoNrcZmCpZK1Zzpo5Yey9dvtFQk8t9aiU/150/EUR?label=order+99282
 
 
 ### Exchange rates
@@ -40,7 +38,7 @@ In addition, if this service ever becomes unavailable in the future, all payment
 This is hosted on Heroku's free tier, and so expected to continue working as long as Heroku
 is (or until they change their pricing model).
 
-**Use at your own risk.** Preferably, *run this your own server*s.
+**Use at your own risk.** Preferably, *run this your own servers*.
 
 ### License
 
