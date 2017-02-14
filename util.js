@@ -15,7 +15,7 @@ const toBTC = (amount, currency, cb) => getRate(currency, iferr(cb,
 
 const formatURL = (addr, amount, opt) => `bitcoin:${ addr }?${ qs.stringify(Object.assign({}, opt, { amount })) }`
 
-const makePaymentReq = (addr, amount, opt) =>
+const makePaymentReq = (addr, amount, opt={}) =>
   PaymentRequest.fromOptions({
     version: 1
   , paymentDetails: PaymentDetails.fromOptions({

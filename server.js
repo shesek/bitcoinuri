@@ -11,7 +11,7 @@ app.get('/:addr([13][0-9a-zA-Z]+)/:amount([0-9.]+)/:currency([A-Z]{3})', (req, r
     res.format({
       default: _ => res.redirect(302, formatURL(req.params.addr, amount, req.query))
     , 'application/bitcoin-paymentrequest': _ => res.type('application/bitcoin-paymentrequest')
-                                             .send(makePaymentReq(req.params.addr, amount))
+                                             .send(makePaymentReq(req.params.addr, amount, req.query))
     })
   ))
 })

@@ -1,0 +1,35 @@
+mixin js(path)
+  if !~path.indexOf('://')
+    - path = static_url + '/' + path + '.js?' + version
+  script(src=path)
+
+mixin css(path)
+  if !~path.indexOf('://')
+    - path = static_url + '/' + path + '.css?' + version
+  link(href=path, type='text/css', rel='stylesheet')
+
+block vars
+  - title = null
+  - active = null
+
+doctype html
+html
+  head
+    block head
+      meta(charset='utf-8')
+      meta(http-equiv='X-UA-Compatible', content='IE=edge')
+      meta(name='viewport', content='width=device-width, initial-scale=1')
+
+      title Bitcoin URI
+      +css('bootstrap/css/bootstrap.min')
+
+  body
+    nav.navbar.navbar-default: .container
+      .navbar-header
+        a.navbar-brand(href=url) Bitcoin URI
+
+    block content
+
+    +js('https://code.jquery.com/jquery-3.1.1.slim.min.js')
+    +js('lib')
+
