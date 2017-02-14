@@ -3,7 +3,7 @@ const iferr  = require('iferr')
     , { toBTC, formatURL, makePaymentReq } = require('./util')
 
 const app = require('express')()
-
+app.disable('x-powered-by')
 app.use(require('morgan')('dev'))
 
 app.get('/:addr([13][0-9a-zA-Z]+)/:amount([0-9.]+)/:currency([A-Z]{3})', (req, res, next) => {
