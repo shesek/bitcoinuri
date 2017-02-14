@@ -4,8 +4,8 @@ const request = require('superagent')
     , movedec = require('move-decimal-point')
     , { PaymentRequest, PaymentDetails } = require('bcoin').bip70
 
-const getRate = (currency, cb) => cb(null, 1000) || true ||
-  request('https://apiv2.bitcoinaverage.com/indices/local/ticker/BTC'+currency)
+const getRate = (currency, cb) => process.env.DUMMYRATE ? cb(null, 1000)
+  : request('https://apiv2.bitcoinaverage.com/indices/local/ticker/BTC'+currency)
     .end(iferr(cb, resp => cb(null, +resp.body.last)))
 
 const toSatoshis = btcs => movedec(btcs, 8)
